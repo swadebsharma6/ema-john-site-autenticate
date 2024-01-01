@@ -1,14 +1,43 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 import SocialLogin from './SocialLogin';
 import './style.css';
 
 const Register = () => {
+    // const [err, setErr] = useState('');
+    const {createUser} = useContext(AuthContext);
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirm = form.confirm.value;
+
+        if(password !== confirm){
+           alert('Password Did not match');
+           return;
+        }
+        console.log(email, password, confirm);
+        createUser(email,password)
+        .then(result =>{
+            const user = result.user;
+            console.log('create user', user);
+            alert('User created successfully');
+            form.reset();
+        })
+        .catch(error =>{
+            console.log(error.message)
+        })
+    }
+
     return (
         <section className='form-container'>
          <h2 className='form-title'>Register</h2> 
          
          <div className='form-box'>
-            <form>
+            <form onSubmit={handleSubmit}>
             <div className="form-control">
             <label htmlFor="email">Email</label>
             <input type="email" name="email" placeholder='abc@gmail.com' id=""  required/>

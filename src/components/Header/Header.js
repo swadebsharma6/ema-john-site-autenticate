@@ -5,7 +5,18 @@ import logo from '../../images/Logo.svg';
 import './Header.css';
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+  const {user, logOut} = useContext(AuthContext);
+
+  const handleLogOut =()=>{
+    logOut()
+    .then(()=>{
+        alert('User logOut Successfully')
+    })
+    .catch(error =>{
+        console.log(error.message)
+    })
+  }
+
     return (
         <nav className='header'>
             <img src={logo} alt="" />
@@ -14,8 +25,10 @@ const Header = () => {
                 <Link to="/orders">Orders</Link>
                 <Link to="/inventory">Inventory</Link>
                 <Link to="/about">About</Link>
-                <Link to="/login">Login</Link>
-                {user &&  <p> {user} </p> }
+               { user ?  <Link><button className='logOut-btn' onClick={handleLogOut}>Sign Out</button></Link>
+                :<Link to="/login">Login</Link>
+            }
+                
             </div>
         </nav>
     );

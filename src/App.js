@@ -6,8 +6,11 @@ import Orders from './components/Orders/Orders';
 import Shop from './components/Shop/Shop';
 import Main from './layouts/Main';
 import { productsAndCartLoader } from './loaders/productsAndCartLoader';
+import ErrorPage from './Pages/ErrorPage';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
+import Shipping from './Pages/Shipping';
+import PrivetRoute from './Provider/PrivetRoute';
 
 
 function App() {
@@ -31,6 +34,10 @@ function App() {
           element: <Inventory></Inventory>
         },
         {
+          path: 'shipping',
+          element: <PrivetRoute> <Shipping></Shipping></PrivetRoute>
+        },
+        {
           path:'about',
           element:<About></About>
         },
@@ -42,7 +49,8 @@ function App() {
           path: 'register',
           element: <Register></Register>
         }
-      ]
+      ],
+      errorElement: <ErrorPage></ErrorPage>
     },
     
   ])
