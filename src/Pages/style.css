@@ -1,0 +1,67 @@
+.form-container {
+  width: 500px;
+  height: 640px;
+  margin: 20px auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #95a0a7;
+  background: #fff;
+}
+.form-title {
+  text-align: center;
+  color: #2a414f;
+  font-family: Lato;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.088px;
+}
+.form-control {
+  margin-left: 33px;
+  margin-bottom: 30px;
+}
+
+.form-control label {
+  display: block;
+  color: #2a414f;
+  font-family: Lato;
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.form-control input {
+  width: 415px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #95a0a7;
+}
+
+.btn-submit {
+  width: 415px;
+  height: 45px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: rgba(255, 153, 0, 0.3);
+}
+.btn-submit:hover {
+  background-color: rgb(162, 180, 142);
+}
+.navigate-link {
+  text-align: center;
+  color: #2a414f;
+  font-family: Lato;
+  font-size: 15px;
+}
+.or {
+  text-align: center;
+}
+.google-btn {
+  width: 415px;
+  height: 45px;
+  margin-left: 33px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border: 1px solid #2f90cc;
+}
